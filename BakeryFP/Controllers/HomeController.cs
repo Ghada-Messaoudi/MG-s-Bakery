@@ -10,6 +10,7 @@ namespace BakeryFP.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Message = "Welcome to The Bakery.";
             return View();
         }
 
