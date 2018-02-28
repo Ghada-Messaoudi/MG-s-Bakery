@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BakeryFP.Models.Person>
+
+@{
+    ViewBag.Title = "Customers";
+}
+
+<h2>Customers</h2>
+
+<p>
+    @Html.ActionLink("Register New Customer", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Last Name
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Date Added
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonDateAdded)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PersonKey }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PersonKey }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PersonKey })
+        </td>
+    </tr>
+}
+
+</table>
