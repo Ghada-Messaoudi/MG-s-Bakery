@@ -201,9 +201,19 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Americano.jpg" />
+    <Content Include="Images\Brownie.jpg" />
+    <Content Include="Images\CinnamonRoll.jpg" />
     <Content Include="Images\cupcakes.jpg" />
+    <Content Include="Images\Danish.jpg" />
+    <Content Include="Images\DeliSandwhich.jpg" />
+    <Content Include="Images\DripCoffee.jpg" />
+    <Content Include="Images\GlazedDonut.jpg" />
+    <Content Include="Images\Latte.jpg" />
+    <Content Include="Images\MapleBar.jpg" />
     <Content Include="Images\pastries.jpeg" />
     <Content Include="Images\pies.jpeg" />
+    <Content Include="Images\SliceOfPie.jpg" />
     <Content Include="Models\Bakery.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Bakery.Context.cs</LastGenOutput>

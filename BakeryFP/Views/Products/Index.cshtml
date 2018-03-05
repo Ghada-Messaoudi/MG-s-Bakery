@@ -9,31 +9,102 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductPrice)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductPrice)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductKey }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductKey }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductKey })
-        </td>
-    </tr>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+    {
+        <div class="col-4">
+            <div class="thumbnail">
+                <img src="@Url.Content("~/Images/"+item.ProductKey+".jpg")" class="img-responsive" width="200" height="200" alt="IMAGES" />
+                <div class="caption">
+                    <h4 class="pull-right">$@Html.DisplayFor(modelItem => item.ProductPrice)</h4>
+                    <h4><a href="#">@Html.DisplayFor(modelItem => item.ProductName)</a></h4>
+                </div>
+                <div class="space-ten"></div>
+                <div class="btn-ground text-center">
+                    <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add To Cart</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#product_view"><i class="fa fa-search"></i> Quick View</button>
+                </div>
+                <div class="space-ten"></div>
+            </div>
+        </div>
+        <div class="modal fade product_view" id="product_view">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                        <h3 class="modal-title">@Html.DisplayFor(modelItem => item.ProductName)</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 product_img">
+                                <img src="@Url.Content("~/Images/"+item.ProductKey+".jpg")" class="img-responsive" width="200" height="200" alt="IMAGES" />
+                            </div>
+                            <div class="col-md-6 product_content">
+                                <h4>Product Id: <span>@Html.DisplayFor(modelItem => item.ProductKey)</span></h4>
+                                <h3>Ingredients</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                <div class="row">
+                                    <div class="col-sm-6 col">
+                                        <h3 class="cost"><span class="glyphicon glyphicon-usd"></span>@Html.DisplayFor(modelItem => item.ProductPrice)</h3>
+                                    </div>
+                                    <div class="col-sm-6 col">
+                                        <select class="form-control" name="select">
+                                            <option value="" selected="">QTY</option>
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                            <option value="">4</option>
+                                            <option value="">5</option>
+                                            <option value="">6</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="space-ten"></div>
+                                <div class="btn-ground">
+                                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</button>
+                                    <div class="space-ten"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 }
+    </div>
+</div>
 
-</table>
+
+
+        @*<table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductPrice)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductPrice)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductKey }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ProductKey }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductKey })
+                    </td>
+                </tr>
+            }
+
+        </table>*@
