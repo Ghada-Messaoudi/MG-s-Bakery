@@ -89,6 +89,16 @@ namespace BakeryFP.Controllers
             return View(product);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(int newProductId)
+        {
+            var products = (List<int>)Session["ShoppingCart"];
+            products.Add(newProductId);
+            Session["ShoppingCart"] = products;
+            return RedirectToAction("Index");
+        }
+
         // GET: Products/Delete/5
         public ActionResult Delete(int? id)
         {

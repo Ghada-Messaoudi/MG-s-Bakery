@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sale</h2>
+@* fix this with querry and liust of products not int *@
+@foreach (var item in Session["ShoppingCart"])
+    <p>@Html.DisplayFor(modelItem => item.ProductKey), @Html.DisplayFor(modelItem => item.ProductName)</p>
+
