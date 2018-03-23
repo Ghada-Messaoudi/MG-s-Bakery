@@ -14,7 +14,7 @@ namespace BakeryFP.Controllers
         // GET: Sale
         public ActionResult Index()
         {
-            List<int> products = (List<int>)Session["ShoppingCart"];
+            List<Product> products = (List<Product>)Session["ShoppingCart"];
             return View(products);
         }
     }

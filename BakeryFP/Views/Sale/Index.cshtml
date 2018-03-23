@@ -1,10 +1,12 @@
-﻿
+﻿@model IEnumerable<BakeryFP.Models.Product>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Sale</h2>
-@* fix this with querry and liust of products not int *@
-@foreach (var item in Session["ShoppingCart"])
-    <p>@Html.DisplayFor(modelItem => item.ProductKey), @Html.DisplayFor(modelItem => item.ProductName)</p>
-
+    @foreach (var item in Model)
+    {
+        <p>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </p>
+    }
